@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Cabee</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="cabee__body w-100">
+            <div class="bg-primary">
+                <!-- Sidebar -->
+                <div class="sidebar text-white">
+                    <div class="mt-5">
+                        <div title="New Booking" class="new-booking" onclick="NewBooking()">
+                            <img src="./assets/icons/Icon ionic-ios-add-circle-outline.svg" alt="">
+                            <p class="mt-1">New</p>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div title="Home" class="sidebarButton nav-item nav-item-active" onclick="home()">
+                            <img src="./assets/icons/Icon feather-home.svg" alt="">
+                            <p class="mt-1">Home</p>
+                        </div>
+                        <div title="Bookings" class="sidebarButton nav-item" onclick="bookings()">
+                            <img src="./assets/icons/Icon awesome-car.svg" alt="">
+                            <p class="mt-1">Bookings</p>
+                        </div>
+                        <div title="Drivers" class="sidebarButton nav-item" onclick="Drivers()">
+                            <img src="./assets/icons/Icon ionic-md-people.svg" alt="">
+                            <p class="mt-1">Drivers</p>
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <div title="Notifications" class="notification d-flex flex-column align-items-center">
+                            <div class="notification-count d-flex align-items-center justify-content-center p-1">
+                                1
+                            </div>
+                            <img onclick="NotifcationPopover()"
+                                src="./assets/icons/Icon ionic-ios-notifications-outline.svg" alt="">
+                            <div id="NotifcationPopover"
+                                class="popover flex-column justify-content-center rounded p-4 bg-white">
+                                <a href="#" class="d-flex align-items-center nItem border-bottom">
+                                    <img src="./assets/user.png" alt="">
+                                    <p>Lorem ipsum dolor sit amet consectetur voluptatum numquam aliquid eaque dolorem
+                                        corrupti, culpa at id sit doloribus.</p>
+                                </a>
+                                <a href="#" class="d-flex align-items-center nItem border-bottom">
+                                    <img src="./assets/user.png" alt="">
+                                    <p>Lorem ipsum dolor sit amet consectetur voluptatum numquam aliquid eaque dolorem
+                                        corrupti, culpa at id sit doloribus.</p>
+                                </a>
+                                <a href="#" class="d-flex align-items-center nItem border-bottom">
+                                    <img src="./assets/user.png" alt="">
+                                    <p>Lorem ipsum dolor sit amet consectetur voluptatum numquam aliquid eaque dolorem
+                                        corrupti, culpa at id sit doloribus.</p>
+                                </a>
+                                <a href="#" class="d-flex align-items-center nItem border-bottom">
+                                    <img src="./assets/user.png" alt="">
+                                    <p>Lorem ipsum dolor sit amet consectetur voluptatum numquam aliquid eaque dolorem
+                                        corrupti, culpa at id sit doloribus.</p>
+                                </a>
+                                <a href="#" class="d-flex align-items-center justify-content-center mt-4 nItem">
+                                    <h6>See More</h6>
+                                </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div title="User Profile" class="user-profile">
+                            <img src="./assets/user.png" onclick="userPopover()" id="utp" class="shadow-md qs" alt="">
+                            <div id="userPopover"
+                                class="popover flex-column justify-content-center rounded p-4 bg-white">
+                                <a href="#" class="d-flex align-items-center">
+                                    <img src="./assets/icons/Icon feather-settings.png" alt="">
+                                    <p>My Account</p>
+                                </a>
+                                <a href="#" class="d-flex align-items-center">
+                                    <img src="./assets/icons/Icon open-account-logout.png" alt="">
+                                    <p>Logout</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sidebar Ends Here -->
+            </div>
+            <div class="cabee__forms">
+                <!-- Map -->
+                <iframe onclick="home()" class="w-100 map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12088.86849183725!2d-73.98761686720589!3d40.757249031594256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2s!4v1645105322131!5m2!1sen!2s">
+                </iframe>
+                <!-- Map Ends Here -->
+
+                <!-- New Booking -->
+                <div class="row justify-content-center align-items-center nBooking" id="new">
+                    <div class="col-md-9 bg-purple bg-lightBlue booking-form p-3">
+                        <div class="d-flex pb-2 justify-content-between align-items-center form-head border-bottom">
+                            <h5><strong>New Job</strong></h5>
+                            <img onclick="cancelBooking()" src="./assets/icons/./Icon metro-cross.svg" alt="">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mt-2">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="bg-white rd-10 p-3">
+                                                <div class="row">
+                                                    <div class="col-12 text-blue mb-2">
+                                                        <h5>Booking Details</h5>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div
+                                                            class="border select-destination d-flex align-items-center rounded px-3">
+                                                            <img class="mr-2"
+                                                                src="./assets/icons/Icon material-location-on.svg"
+                                                                alt="">
+                                                            <p class="mt-3 mx-2">Select Pickup</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 ">
+                                                        <div
+                                                            class="border select-destination d-flex align-items-center rounded px-3">
+                                                            <img class="mr-2"
+                                                                src="./assets/icons/Icon map-location-arrow.svg" alt="">
+                                                            <p class="mt-3 mx-2">Select Destination</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white mt-2 rd-10 p-3">
+                                                <div class="row">
+                                                    <div class="col-12 text-blue mb-2">
+                                                        <h5>Passenger Details</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <input type="text"
+                                                                    class="w-100 border py-1 px-2 rounded"
+                                                                    placeholder="Name">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input type="text"
+                                                                    class="w-100 border py-1 px-2 rounded"
+                                                                    placeholder="Email">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 mt-1">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <input type="text"
+                                                                    class="w-100 border py-1 px-2 rounded"
+                                                                    placeholder="Telephone">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input type="text"
+                                                                    class="w-100 border py-1 px-2 rounded"
+                                                                    placeholder="Phone Number">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 mt-1">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <input type="number"
+                                                                    class="w-100 border py-1 px-2 rounded"
+                                                                    placeholder="No Of Pax">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input type="number"
+                                                                    class="w-100 border py-1 px-2 rounded"
+                                                                    placeholder="No Of Bags">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 p-2 d-map bg-white rd-10">
+                                            <iframe class="w-100 form-map rd-10"
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12088.86849183725!2d-73.98761686720589!3d40.757249031594256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2s!4v1645105322131!5m2!1sen!2s"
+                                                loading="lazy">
+                                            </iframe>
+                                            <div class="w-100 py-1">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <h5 class="text-blue">Distance:</h5>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <h5 class="text-blue">Time:</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="bg-white mt-2 rd-10 p-3">
+                                    <div class="row">
+                                        <div class="col-12 text-blue mb-2 d-flex align-items-center">
+                                            <h5 class="mt-1">Journey Details</h5>
+                                            <div class="radio mx-4">
+                                                <label><input type="radio" name="optradio">One Way</label>
+                                                <label><input type="radio" name="optradio">Return</label>
+                                                <label><input type="radio" name="optradio">W/R</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <select name="vehicle-type" class="w-100 border py-1 px-2 rounded"
+                                                    id="">
+                                                    <option value="1">Select Vehicle</option>
+                                                    <option value="1">v1</option>
+                                                    <option value="1">v2</option>
+                                                    <option value="1">v3</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <select name="Driver" class="w-100 border py-1 px-2 rounded" id="">
+                                                    <option value="1">Select Driver</option>
+                                                    <option value="1">d1</option>
+                                                    <option value="1">d2</option>
+                                                    <option value="1">d3</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <input type="date" class="w-100 border py-1 px-2 rounded"
+                                                    placeholder="Date">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <input type="text" class="w-100 border py-1 px-2 rounded"
+                                                    placeholder="Time ">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="text" class="w-100 border py-1 px-2 rounded"
+                                                    placeholder="Special Requirements">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="bg-white mt-2 rd-10 p-3">
+                                    <div class="row">
+                                        <div class="col-12 text-blue mb-2 d-flex align-items-center">
+                                            <h5 class="mt-1">Payment Details</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <select name="vehicle-type" class="w-100 border py-1 px-2 rounded"
+                                                    id="">
+                                                    <option value="1">Payment Mode</option>
+                                                    <option value="1">v1</option>
+                                                    <option value="1">v2</option>
+                                                    <option value="1">v3</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <input type="text" class="w-100 border py-1 px-2 rounded"
+                                                    placeholder="Driver Price">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <input type="text" class="w-100 border py-1 px-2 rounded"
+                                                    placeholder="Account Price">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <input type="text" class="w-100 border py-1 px-2 rounded"
+                                                    placeholder="Price">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="w-100 border py-1 px-2 rounded"
+                                                    placeholder="Ecommerce">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="d-flex justify-content-between p-3">
+                                    <div class="d-flex">
+                                        <h5 class="mt-3">Total Charges</h5>
+                                        <input type="text" class="mx-2 border py-1 px-2" placeholder="0">
+                                    </div>
+                                    <div class="d-flex">
+                                        <button class="frm-btns btn-blue-outlined">Book Later</button>
+                                        <button class="frm-btns btn-blue">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- New Booking Ends here -->
+
+                <!-- Bookings Starts Here -->
+                <div class="bg-purple bg-lightBlue bookings-list" id="bookingsList">
+                    <div title="Open Bookings" onclick="bookings()"
+                        class="close-bookings d-flex align-items-center justify-content-center">
+                        <img src="./assets/icons/Icon awesome-arrow-up.svg" id="bookingsToggle" alt="">
+                    </div>
+                    <div class="bookings-content">
+                        <div
+                            class="bookingsHead d-flex mb-4 justify-content-between align-items-center form-head border-bottom">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="t-bookings" data-bs-toggle="tab"
+                                        data-bs-target="#tbookings" type="button" role="tab" aria-controls="t-bookings"
+                                        aria-selected="true">Today's Bookings
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="f-bookings" data-bs-toggle="tab"
+                                        data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
+                                        aria-selected="false">Future
+                                        Bookings
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="j-InProcess" data-bs-toggle="tab"
+                                        data-bs-target="#contact" type="button" role="tab" aria-controls="contact"
+                                        aria-selected="false">Jobs In Process
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="Completed-Jobs" data-bs-toggle="tab"
+                                        data-bs-target="#jobsInProcess" type="button" role="tab" aria-controls="contact"
+                                        aria-selected="false">Completed Jobs
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="tbookings" role="tabpanel"
+                                aria-labelledby="t-bookings">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Job#</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Account</th>
+                                            <th>Pickup</th>
+                                            <th>Destination</th>
+                                            <th>Fares</th>
+                                            <th>PM</th>
+                                            <th>Vehicle</th>
+                                            <th>Driver</th>
+                                            <th>Passenger</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>14501</td>
+                                            <td>03.20.2022</td>
+                                            <td>13:15</td>
+                                            <td>Gofery Bowman</td>
+                                            <td>15 - 17 Lodge Road, NW8 7JA</td>
+                                            <td>33 Shawfield Street, London SW3 4BA</td>
+                                            <td>34.00</td>
+                                            <td>AC</td>
+                                            <td>Luxury</td>
+                                            <td>65</td>
+                                            <td>Junior Orlov</td>
+                                            <td>Accepted</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14501</td>
+                                            <td>03.20.2022</td>
+                                            <td>13:15</td>
+                                            <td>Gofery Bowman</td>
+                                            <td>15 - 17 Lodge Road, NW8 7JA</td>
+                                            <td>33 Shawfield Street, London SW3 4BA</td>
+                                            <td>34.00</td>
+                                            <td>AC</td>
+                                            <td>Luxury</td>
+                                            <td>65</td>
+                                            <td>Junior Orlov</td>
+                                            <td>Accepted</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14501</td>
+                                            <td>03.20.2022</td>
+                                            <td>13:15</td>
+                                            <td>Gofery Bowman</td>
+                                            <td>15 - 17 Lodge Road, NW8 7JA</td>
+                                            <td>33 Shawfield Street, London SW3 4BA</td>
+                                            <td>34.00</td>
+                                            <td>AC</td>
+                                            <td>Luxury</td>
+                                            <td>65</td>
+                                            <td>Junior Orlov</td>
+                                            <td>Accepted</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="f-bookings">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Job#</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Account</th>
+                                            <th>Pickup</th>
+                                            <th>Destination</th>
+                                            <th>Fares</th>
+                                            <th>PM</th>
+                                            <th>Vehicle</th>
+                                            <th>Driver</th>
+                                            <th>Passenger</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>14501</td>
+                                            <td>03.20.2022</td>
+                                            <td>13:15</td>
+                                            <td>Gofery Bowman</td>
+                                            <td>15 - 17 Lodge Road, NW8 7JA</td>
+                                            <td>33 Shawfield Street, London SW3 4BA</td>
+                                            <td>34.00</td>
+                                            <td>AC</td>
+                                            <td>Luxury</td>
+                                            <td>65</td>
+                                            <td>Junior Orlov</td>
+                                            <td>Accepted</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14501</td>
+                                            <td>03.20.2022</td>
+                                            <td>13:15</td>
+                                            <td>Gofery Bowman</td>
+                                            <td>15 - 17 Lodge Road, NW8 7JA</td>
+                                            <td>33 Shawfield Street, London SW3 4BA</td>
+                                            <td>34.00</td>
+                                            <td>AC</td>
+                                            <td>Luxury</td>
+                                            <td>65</td>
+                                            <td>Junior Orlov</td>
+                                            <td>Accepted</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14501</td>
+                                            <td>03.20.2022</td>
+                                            <td>13:15</td>
+                                            <td>Gofery Bowman</td>
+                                            <td>15 - 17 Lodge Road, NW8 7JA</td>
+                                            <td>33 Shawfield Street, London SW3 4BA</td>
+                                            <td>34.00</td>
+                                            <td>AC</td>
+                                            <td>Luxury</td>
+                                            <td>65</td>
+                                            <td>Junior Orlov</td>
+                                            <td>Accepted</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14501</td>
+                                            <td>03.20.2022</td>
+                                            <td>13:15</td>
+                                            <td>Gofery Bowman</td>
+                                            <td>15 - 17 Lodge Road, NW8 7JA</td>
+                                            <td>33 Shawfield Street, London SW3 4BA</td>
+                                            <td>34.00</td>
+                                            <td>AC</td>
+                                            <td>Luxury</td>
+                                            <td>65</td>
+                                            <td>Junior Orlov</td>
+                                            <td>Accepted</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14501</td>
+                                            <td>03.20.2022</td>
+                                            <td>13:15</td>
+                                            <td>Gofery Bowman</td>
+                                            <td>15 - 17 Lodge Road, NW8 7JA</td>
+                                            <td>33 Shawfield Street, London SW3 4BA</td>
+                                            <td>34.00</td>
+                                            <td>AC</td>
+                                            <td>Luxury</td>
+                                            <td>65</td>
+                                            <td>Junior Orlov</td>
+                                            <td>Accepted</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14501</td>
+                                            <td>03.20.2022</td>
+                                            <td>13:15</td>
+                                            <td>Gofery Bowman</td>
+                                            <td>15 - 17 Lodge Road, NW8 7JA</td>
+                                            <td>33 Shawfield Street, London SW3 4BA</td>
+                                            <td>34.00</td>
+                                            <td>AC</td>
+                                            <td>Luxury</td>
+                                            <td>65</td>
+                                            <td>Junior Orlov</td>
+                                            <td>Accepted</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="j-InProcess">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Job#</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Account</th>
+                                            <th>Pickup</th>
+                                            <th>Destination</th>
+                                            <th>Fares</th>
+                                            <th>PM</th>
+                                            <th>Vehicle</th>
+                                            <th>Driver</th>
+                                            <th>Passenger</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="jobsInProcess" role="tabpanel"
+                                aria-labelledby="Completed-Jobs">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Job#</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Account</th>
+                                            <th>Pickup</th>
+                                            <th>Destination</th>
+                                            <th>Fares</th>
+                                            <th>PM</th>
+                                            <th>Vehicle</th>
+                                            <th>Driver</th>
+                                            <th>Passenger</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>14501</td>
+                                            <td>03.20.2022</td>
+                                            <td>13:15</td>
+                                            <td>Gofery Bowman</td>
+                                            <td>15 - 17 Lodge Road, NW8 7JA</td>
+                                            <td>33 Shawfield Street, London SW3 4BA</td>
+                                            <td>34.00</td>
+                                            <td>AC</td>
+                                            <td>Luxury</td>
+                                            <td>65</td>
+                                            <td>Junior Orlov</td>
+                                            <td>Accepted</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bookings Ends Here -->
+
+                <!-- Drivers -->
+                <div class="col-md-4 bg-purple bg-lightBlue rounded drivers-list" id="drivers-list">
+                    <div title="Close Drivers List" onclick="Drivers()"
+                        class="close-drivers d-flex align-items-center justify-content-center">
+                        <img src="./assets/icons/Icon awesome-arrow-left.svg" id="driversToggle" alt="">
+                    </div>
+                    <div class="dContent">
+                        <div class="row dHead">
+                            <div class="col-md-6 p-1 bg-blue d-flex align-items-center justify-content-center">
+                                <h5 class="text-white mt-2">Available</h5>
+                            </div>
+                            <div class="col-md-6 p-1 bg-danger d-flex align-items-center justify-content-center">
+                                <h5 class="text-white mt-2">On Job</h5>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <!-- Available -->
+                            <div class="col-md-6">
+                                <div class="driver-card w-100 p-2" onclick="DriverProfile()">
+                                    <div class="d-flex align-items-center">
+                                        <img src="./assets/d.png" class="dCard-img" alt="">
+                                        <div
+                                            class="driver-details available px-2 d-flex flex-column justify-content-center">
+                                            <h6>John Doye</h6>
+                                            <p>Honda Civic</p>
+                                        </div>
+                                    </div>
+                                    <div class="div">
+                                        <div class="driverContact d-flex align-items-center" style="margin-top: -10px;">
+                                            <img src="./assets/icons/Icon ionic-ios-call.png" alt="">
+                                            <p class="mt-3 mx-2">00441313131131311</p>
+                                        </div>
+                                        <div class="driverContact d-flex align-items-center" style="margin-top: -30px;">
+                                            <img src="./assets/icons/Icon ionic-ios-speedometer.png" alt="">
+                                            <p class="mt-3 mx-2">03h 34m</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="driver-card mt-2 w-100 p-2" onclick="DriverProfile()">
+                                    <div class="d-flex align-items-center">
+                                        <img src="./assets/d.png" class="dCard-img" alt="">
+                                        <div
+                                            class="driver-details available px-2 d-flex flex-column justify-content-center">
+                                            <h6>John Doye</h6>
+                                            <p>Honda Civic</p>
+                                        </div>
+                                    </div>
+                                    <div class="div">
+                                        <div class="driverContact d-flex align-items-center" style="margin-top: -10px;">
+                                            <img src="./assets/icons/Icon ionic-ios-call.png" alt="">
+                                            <p class="mt-3 mx-2">00441313131131311</p>
+                                        </div>
+                                        <div class="driverContact d-flex align-items-center" style="margin-top: -30px;">
+                                            <img src="./assets/icons/Icon ionic-ios-speedometer.png" alt="">
+                                            <p class="mt-3 mx-2">03h 34m</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- On Job -->
+                            <div class="col-md-6">
+                                <div class="driver-card w-100 p-2" onclick="DriverProfile()">
+                                    <div class="d-flex align-items-center">
+                                        <img src="./assets/d.png" class="dCard-img" alt="">
+                                        <div
+                                            class="driver-details onJob px-2 d-flex flex-column justify-content-center">
+                                            <h6>John Doye</h6>
+                                            <p>Honda Civic</p>
+                                        </div>
+                                    </div>
+                                    <div class="div">
+                                        <div class="driverContact d-flex align-items-center" style="margin-top: -10px;">
+                                            <img src="./assets/icons/Icon ionic-ios-call.png" alt="">
+                                            <p class="mt-3 mx-2">00441313131131311</p>
+                                        </div>
+                                        <div class="driverContact d-flex align-items-center" style="margin-top: -30px;">
+                                            <img src="./assets/icons/Icon ionic-ios-speedometer.png" alt="">
+                                            <p class="mt-3 mx-2">03h 34m</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="driver-card w-100 p-2 mt-2" onclick="DriverProfile()">
+                                    <div class="d-flex align-items-center">
+                                        <img src="./assets/d.png" class="dCard-img" alt="">
+                                        <div
+                                            class="driver-details onJob px-2 d-flex flex-column justify-content-center">
+                                            <h6>John Doye</h6>
+                                            <p>Honda Civic</p>
+                                        </div>
+                                    </div>
+                                    <div class="div">
+                                        <div class="driverContact d-flex align-items-center" style="margin-top: -10px;">
+                                            <img src="./assets/icons/Icon ionic-ios-call.png" alt="">
+                                            <p class="mt-3 mx-2">00441313131131311</p>
+                                        </div>
+                                        <div class="driverContact d-flex align-items-center" style="margin-top: -30px;">
+                                            <img src="./assets/icons/Icon ionic-ios-speedometer.png" alt="">
+                                            <p class="mt-3 mx-2">03h 34m</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Drivers List Ends here -->
+
+                <!-- Driver Profile -->
+                <div class="driverProfile" id="dProfile">
+                    <div title="Close Drivers Profile" onclick="hideDriverProfile()"
+                        class="close-dProfile d-flex align-items-center justify-content-center">
+                        <img src="./assets/icons/Icon awesome-arrow-left.svg" id="driversToggle" alt="">
+                    </div>
+                    <div class="dProfileContent p-3">
+                        <!-- Driver Profile = dp -->
+                        <div class="row dp__Head">
+                            <div class="col-md-4">
+                                <img src="./assets/driver.png" alt="">
+                            </div>
+                            <div class="col-md-5">
+                                <h2 class="mt-3 text-blue">John Walker</h2>
+                                <h6 class="text-gray">Honda Civic</h6>
+                                <div class="d-flex align-items-center">
+                                    <img src="./assets/icons/Icon ionic-md-mail.png" alt="">
+                                    <p class="mt-3 mx-3">user@gmail.com</p>
+                                </div>
+                                <div class="d-flex align-items-center" style="margin-top: -20px;">
+                                    <img src="./assets/icons/Icon ionic-ios-call.png" alt="">
+                                    <p class="mt-3 mx-3">00441313131131311</p>
+                                </div>
+                                <div class="d-flex align-items-center" style="margin-top: -20px;">
+                                    <img src="./assets/icons/Icon ionic-ios-speedometer.png" alt="">
+                                    <p class="mt-3 mx-3">03h 34m</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="driverPhone d-flex align-items-center justify-content-center">
+                                    <p class="mt-2">Battery</p>
+                                    <h6 class="mx-2">24%</h6>
+                                </div>
+                                <div class="driverPhone mt-2 d-flex align-items-center justify-content-center">
+                                    <p class="mt-2">Version</p>
+                                    <h6 class="mx-2">1.1.9</h6>
+                                </div>
+                                <div class="driverPhone mt-2 d-flex align-items-center justify-content-center">
+                                    <p class="mt-2">Device</p>
+                                    <h6 class="mx-2">IOS</h6>
+                                </div>
+                                <div class="driverPhone d-flex mt-2 align-items-center justify-content-center">
+                                    <p class="mt-2">Location</p>
+                                    <h6 class="mx-2">On</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row bg-blue p-1">
+                            <h5 class="text-white text-center mt-2">Activity Timeline</h5>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-1 d-flex flex-column align-items-center">
+                                        <div class="activity-ball bg-primary"></div>
+                                        <span class="bg-warning activity-line"></span>
+                                    </div>
+                                    <div class="col-md-11">
+                                        <h6 class="text-primary">Booking Created At:</h6>
+                                        <p>March 19th 2019, 07:46:15 pm</p>
+                                    </div>
+                                    <div class="col-md-1 d-flex flex-column align-items-center">
+                                        <div class="activity-ball bg-warning"></div>
+                                        <span class="bg-success activity-line"></span>
+                                    </div>
+                                    <div class="col-md-11">
+                                        <h6 class="text-warning">Driver Accepted:</h6>
+                                        <p>March 19th 2019, 07:46:15 pm</p>
+                                    </div>
+                                    <div class="col-md-1 d-flex flex-column align-items-center">
+                                        <div class="activity-ball bg-success"></div>
+                                    </div>
+                                    <div class="col-md-11">
+                                        <h6 class="text-success">Driver On The Way:</h6>
+                                        <p>Your driver is on the way</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <iframe class="w-100 h-100"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12088.86849183725!2d-73.98761686720589!3d40.757249031594256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2s!4v1645105322131!5m2!1sen!2s"
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row bg-blue p-1">
+                            <h5 class="text-white text-center mt-2">Contact Driver</h5>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mesgs w-100">
+                                    <div class="msg_history">
+                                      <div class="incoming_msg">
+                                        <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                                        <div class="received_msg">
+                                          <div class="received_withd_msg">
+                                            <p>Test which is a new approach to have all
+                                              solutions</p>
+                                            <span class="time_date"> 11:01 AM    |    June 9</span></div>
+                                        </div>
+                                      </div>
+                                      <div class="outgoing_msg">
+                                        <div class="sent_msg">
+                                          <p>Test which is a new approach to have all
+                                            solutions</p>
+                                          <span class="time_date"> 11:01 AM    |    June 9</span> </div>
+                                      </div>
+                                      <div class="incoming_msg">
+                                        <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                                        <div class="received_msg">
+                                          <div class="received_withd_msg">
+                                            <p>Test, which is a new approach to have</p>
+                                            <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
+                                        </div>
+                                      </div>
+                                      <div class="outgoing_msg">
+                                        <div class="sent_msg">
+                                          <p>Apollo University, Delhi, India Test</p>
+                                          <span class="time_date"> 11:01 AM    |    Today</span> </div>
+                                      </div>
+                                      <div class="incoming_msg">
+                                        <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                                        <div class="received_msg">
+                                          <div class="received_withd_msg">
+                                            <p>We work directly with our designers and suppliers,
+                                              and sell direct to you, which means quality, exclusive
+                                              products, at a price anyone can afford.</p>
+                                            <span class="time_date"> 11:01 AM    |    Today</span></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="type_msg">
+                                      <div class="input_msg_write">
+                                        <input type="text" class="write_msg" placeholder="Type a message" />
+                                        <button class="msg_send_btn d-flex align-items-center justify-content-center" type="button">
+                                            <img src="./assets/icons/Icon feather-send.svg" alt="">
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Driver Profile Ends HEre -->
+
+            </div>
+        </div>
+    </div>
+
+    <!-- scripts -->
+    <script>
+        // Home
+        function closeBookings() {
+            b.style.transform = "translateY(100vh)";
+            bToggle.style.transform = "rotate(0deg)";
+        }
+        function closeDrivers() {
+            d.style.transform = "translateX(-40vw)";
+        }
+
+        function home() {
+            hideDriverProfile();
+            closeBookings();
+            closeDrivers();
+            hideUserPopover();
+            hideNpopover();
+            cancelBooking();
+        }
+
+        // Open New Booking Form
+        var newBooking = document.getElementById("new");
+        function NewBooking() {
+            newBooking.style.display = "flex";
+            hideDriverProfile();
+            hideNpopover();
+            hideUserPopover();
+            closeDrivers();
+            closeBookings();
+        }
+        // Close New Booking Form
+        function cancelBooking() {
+            document.getElementById("new").style.display = "none";
+        }
+
+        // Bookings
+        var b = document.getElementById("bookingsList");
+        // Bookings Toggle
+        var bToggle = document.getElementById("bookingsToggle");
+        b.style.transform = "translateY(100vh)";
+        function bookings() {
+            if (b.style.transform === "translateY(100vh)") {
+                b.style.transform = "translateY(20vh)";
+                bToggle.style.transform = "rotate(180deg)";
+                closeDrivers();
+                hideDriverProfile();
+                hideUserPopover();
+                hideNpopover();
+            } else {
+                closeBookings();
+            }
+        }
+
+        // Drivers
+        var d = document.getElementById("drivers-list");
+        d.style.transform = "translateX(-40vw)";
+        function Drivers() {
+            if (d.style.transform === "translateX(-40vw)") {
+                d.style.transform = "translateX(0vw)";
+                closeBookings();
+                hideDriverProfile();
+                hideNpopover();
+                hideUserPopover();
+            } else {
+                hideDriverProfile();
+                d.style.transform = "translateX(-40vw)";
+            }
+        }
+
+        // Driver Profile
+        var dProf = document.getElementById("dProfile");
+        // Driver Toggle
+        dProf.style.transform = "translateX(48vw)";
+        function DriverProfile() {
+            dProf.style.transform = "translateX(0vw)";
+            closeBookings();
+            hideNpopover();
+            hideUserPopover();
+        }
+        function hideDriverProfile() {
+            dProf.style.transform = "translateX(48vw)";
+        }
+
+        // User Popover
+        let up = document.getElementById("userPopover");
+        up.style.display = "none";
+        function userPopover() {
+            if (up.style.display === "none") {
+                up.style.display = "flex"
+                hideNpopover();
+            } else {
+                closeDrivers();
+            }
+        }
+        function hideUserPopover() {
+            up.style.display = "none"
+        }
+
+        // Notification Popover
+        let nP = document.getElementById("NotifcationPopover");
+        nP.style.display = "none";
+        function NotifcationPopover() {
+            if (nP.style.display === "none") {
+                nP.style.display = "flex"
+                hideUserPopover();
+            } else {
+                nP.style.display = "none";
+            }
+        }
+        function hideNpopover() {
+            nP.style.display = "none"
+        }
+    </script>
+
+</body>
+</html>
